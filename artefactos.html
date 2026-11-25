@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="PaimonTracker: Calculadora de optimización de artefactos y substats.">
+    <meta name="author" content="Edwin García">
+
+    <title>PaimonTracker | Calculadora de Artefactos</title>
+
+    <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header class="dash-header">
+        <picture class="header-logo">
+            <span class="logo-text">Paimon<span class="logo-text--highlight">Tracker</span></span>
+        </picture>
+        
+        <nav class="header-meta" aria-label="Controles de usuario y estado del sistema">
+            <form class="header-search" role="search">
+                <input type="search" class="search-input" placeholder="Buscar..." aria-label="Buscar en el centro de comando">
+            </form>
+            
+            <section class="server-status-summary" aria-label="Estado general del servidor">
+                <span class="status-indicator status-indicator--online" aria-hidden="true"></span>
+                <span class="status-text">AMÉRICA ONLINE</span>
+            </section>
+
+            <section class="user-profile" aria-label="Información del viajero">
+                <img src="/assets/brand/avatar.jpeg" alt="Avatar Many - Viajero" class="user-avatar">
+                <span class="user-name">Viajero</span>
+            </section>
+        </nav>
+    </header>
+
+    <main class="dash-container">
+        
+        <aside class="dash-sidebar">
+            <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Alternar barra lateral" aria-expanded="true">❮</button>
+            
+            <nav class="sidebar-nav" aria-label="Menú de navegación de Teyvat">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/index.html" class="nav-link">
+                            <span class="nav-icon" aria-hidden="true">📊</span>
+                            <span class="nav-text">Vista General</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/personajes.html" class="nav-link">
+                            <span class="nav-icon" aria-hidden="true">👥</span>
+                            <span class="nav-text">Personajes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/artefactos.html" class="nav-link nav-link--active" aria-current="page">
+                            <span class="nav-icon" aria-hidden="true">👑</span>
+                            <span class="nav-text">Calculadora</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/dominios.html" class="nav-link">
+                            <span class="nav-icon" aria-hidden="true">📅</span>
+                            <span class="nav-text">Dominios Diarios</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="dash-main-content" aria-label="Calculadora de Artefactos">
+            <header class="content-header">
+                <h1 class="content-title">Calculadora de Artefactos</h1>
+                <p class="content-subtitle">Evalúa el valor crítico (CV) y balance de sub-estadísticas de tus piezas.</p>
+            </header>
+
+            <section class="content-grid" aria-label="Formulario y resultados de cálculo">
+                
+                <article class="content-card featured-card">
+                    <header class="card-header">
+                        <h2 class="card-title">Ingreso de Atributos</h2>
+                        <span class="system-code">NIVEL 20</span>
+                    </header>
+                    
+                    <form class="task-fieldset" style="display: flex; flex-direction: column; gap: 16px;">
+                        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                            <label class="task-item" style="flex-direction: column; align-items: flex-start; gap: 6px;">
+                                <span class="storage-name">Probabilidad Crítica (%)</span>
+                                <input type="number" step="0.1" class="search-input" placeholder="Ej: 10.5">
+                            </label>
+                            <label class="task-item" style="flex-direction: column; align-items: flex-start; gap: 6px;">
+                                <span class="storage-name">Daño Crítico (%)</span>
+                                <input type="number" step="0.1" class="search-input" placeholder="Ej: 21.0">
+                            </label>
+                            <label class="task-item" style="flex-direction: column; align-items: flex-start; gap: 6px;">
+                                <span class="storage-name">Ataque / EM Secundario</span>
+                                <input type="number" class="search-input" placeholder="Ej: 45">
+                            </label>
+                        </section>
+                        <footer class="form-actions" style="margin-top: 12px;">
+                            <button type="button" class="system-code" style="cursor: pointer; padding: 10px 20px; width: 100%; text-align: center; font-weight: 700;">CALCULAR VALOR CRÍTICO</button>
+                        </footer>
+                    </form>
+                </article>
+
+                <article class="content-card">
+                    <header class="card-inner-header">
+                        <h3 class="card-title-secondary">Resultado de Evaluación</h3>
+                        <span class="system-code">Puntaje</span>
+                    </header>
+                    <section class="metric-display">
+                        <section class="metric-value-container">
+                            <span class="metric-number">42.0 <span class="metric-max">CV</span></span>
+                            <span class="storage-status status-healthy">Tier Dios</span>
+                        </section>
+                        <progress class="storage-bar" value="42" max="50" aria-label="Calidad del artefacto"></progress>
+                        <footer class="storage-footer">
+                            <span class="storage-data">Fórmula: (Prob * 2) + Daño</span>
+                            <span class="storage-status status-normal">Eficiencia: 94%</span>
+                        </footer>
+                    </section>
+                </article>
+
+            </section>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p class="footer-copyright">© 2026 PaimonTracker | Teyvat Network v5.6 Sincronizado</p>
+        <section class="footer-server-status" aria-label="Estado de red">
+            <span class="status-indicator status-indicator--online" aria-hidden="true"></span>
+            <span class="system-code">PING: 24ms</span>
+        </section>
+        <aside class="brand-aside">
+            <p class="footer-author">Desarrollado por <strong>Edwin García</strong></p>
+            <span class="brand-wrapper">
+                <img class="logo-brand" src="/assets/brand/logo.png" alt="Marca Edwin García - Many">
+            </span>
+        </aside>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>

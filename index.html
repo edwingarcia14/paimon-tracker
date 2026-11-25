@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="PaimonTracker: Panel de control avanzado para Genshin Impact.">
+    <meta name="author" content="Edwin García">
+
+    <title>PaimonTracker | Centro de Comando de Teyvat</title>
+
+    <link rel="icon" type="image/png" href="/assets/icons/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header class="dash-header">
+        <picture class="header-logo">
+            <span class="logo-text">Paimon<span class="logo-text--highlight">Tracker</span></span>
+        </picture>
+
+        <nav class="header-meta" aria-label="Controles de usuario y estado del sistema">
+            <form class="header-search" role="search">
+                <input type="search" class="search-input" placeholder="Buscar..." aria-label="Buscar en el centro de comando">
+            </form>
+
+            <section class="server-status-summary" aria-label="Estado general del servidor">
+                <span class="status-indicator status-indicator--online" aria-hidden="true"></span>
+                <span class="status-text">AMÉRICA ONLINE</span>
+            </section>
+
+            <section class="user-profile" aria-label="Información del viajero">
+                <img src="/assets/brand/avatar.jpeg" alt="Avatar Many - Viajero" class="user-avatar">
+                <span class="user-name">Viajero</span>
+            </section>
+        </nav>
+    </header>
+
+    <main class="dash-container">
+
+        <aside class="dash-sidebar">
+            <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Alternar barra lateral" aria-expanded="true">❮</button>
+
+            <nav class="sidebar-nav" aria-label="Menú de navegación de Teyvat">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="/index.html" class="nav-link nav-link--active" aria-current="page">
+                            <span class="nav-icon" aria-hidden="true">📊</span>
+                            <span class="nav-text">Vista General</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/personajes.html" class="nav-link">
+                            <span class="nav-icon" aria-hidden="true">👥</span>
+                            <span class="nav-text">Personajes</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/artefactos.html" class="nav-link">
+                            <span class="nav-icon" aria-hidden="true">👑</span>
+                            <span class="nav-text">Calculadora</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/dominios.html" class="nav-link">
+                            <span class="nav-icon" aria-hidden="true">📅</span>
+                            <span class="nav-text">Dominios Diarios</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="dash-main-content" aria-label="Bitácora de recursos activos y tareas">
+            <header class="content-header">
+                <h1 class="content-title">Estado del Viaje</h1>
+                <p class="content-subtitle">Host: <code class="system-code">teyvat-live-node01 (Sincronizado)</code></p>
+            </header>
+
+            <section class="content-grid" aria-label="Widgets de monitoreo de resina y encargos">
+
+                <article class="content-card featured-card">
+                    <header class="card-header">
+                        <h2 class="card-title">Resina Original Activa</h2>
+                        <span class="system-code">REGENERANDO</span>
+                    </header>
+
+                    <section class="storage-metrics" aria-label="Desglose de resina acumulada">
+                        <article class="storage-item">
+                            <header class="storage-info">
+                                <span class="storage-name">🌙 Resina de la Cuenta</span>
+                                <span class="storage-percentage"><code class="system-code">124 / 160</code></span>
+                            </header>
+                            <progress id="resin-bar" class="storage-bar" value="124" max="160" aria-label="Espacio ocupado por resina original"></progress>
+                            <footer class="storage-footer">
+                                <span class="storage-data">Regeneración: 1 cada 8 min</span>
+                                <span class="storage-status status-healthy">04h 48m para llenar</span>
+                            </footer>
+                        </article>
+                    </section>
+                </article>
+
+                <article class="content-card">
+                    <header class="card-inner-header">
+                        <h3 class="card-title-secondary">Encargos Diarios</h3>
+                        <span class="system-code">Gremio</span>
+                    </header>
+                    <section class="metric-display">
+                        <fieldset class="task-fieldset">
+                            <legend class="screen-reader-only">Lista de misiones del día</legend>
+                            <label class="task-item">
+                                <input type="checkbox" checked>
+                                <span class="task-text">Emergencia imprevista</span>
+                            </label>
+                            <label class="task-item">
+                                <input type="checkbox">
+                                <span class="task-text">El arte de la arquería</span>
+                            </label>
+                            <label class="task-item">
+                                <input type="checkbox">
+                                <span class="task-text">Limpieza en el viñedo</span>
+                            </label>
+                            <label class="task-item">
+                                <input type="checkbox">
+                                <span class="task-text">Cuestiones de moda</span>
+                            </label>
+                        </fieldset>
+                        <footer class="storage-footer">
+                            <span class="storage-data">Gremio de Aventureros</span>
+                            <span class="storage-status status-warning">Katheryne: Pendiente</span>
+                        </footer>
+                    </section>
+                </article>
+
+                <article class="content-card">
+                    <header class="card-inner-header">
+                        <h3 class="card-title-secondary">Jefes Semanales</h3>
+                        <span class="system-code">Resina x30</span>
+                    </header>
+                    <section class="metric-display">
+                        <section class="metric-value-container">
+                            <span id="boss-number" class="metric-number">1 <span class="metric-max">/ 3</span></span>
+                            <span class="storage-status status-healthy">En Progreso</span>
+                        </section>
+                        <progress id="boss-bar" class="storage-bar" value="1" max="3" aria-label="Jefes semanales completados con descuento"></progress>
+                        <footer class="storage-footer">
+                            <span class="storage-data">Pase de Batalla</span>
+                        </footer>
+                    </section>
+                </article>
+
+                <article class="content-card">
+                    <header class="card-inner-header">
+                        <h2 class="card-title-secondary">🔮 Transmutación</h2>
+                        <span class="system-code">Paramétrico</span>
+                    </header>
+
+                    <section class="metric-display">
+                        <article class="storage-item">
+                            <header class="storage-info">
+                                <span>⌛ Cuenta Regresiva</span>
+                                <span><code id="parametric-time" class="system-code">Listo</code></span>
+                            </header>
+                        </article>
+                    </section>
+
+                    <footer class="storage-footer">
+                        <span class="storage-data">Recompensa: Materiales</span>
+                    </footer>
+                </article>
+
+            </section>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p class="footer-copyright">© 2026 PaimonTracker | Teyvat Network v5.6 Sincronizado</p>
+        <section class="footer-server-status" aria-label="Estado de red">
+            <span class="status-indicator status-indicator--online" aria-hidden="true"></span>
+            <span class="system-code">PING: 24ms</span>
+        </section>
+        <aside class="brand-aside">
+            <p class="footer-author">Desarrollado por <strong>Edwin García</strong></p>
+            <span class="brand-wrapper">
+                <img class="logo-brand" src="/assets/brand/logo.png" alt="Marca Edwin García - Many">
+            </span>
+        </aside>
+    </footer>
+
+    <script type="module" src="/js/main.js"></script>
+</body>
+
+</html>
